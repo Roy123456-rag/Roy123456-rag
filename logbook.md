@@ -28,5 +28,47 @@ else{
 *Discuss the skills and techniques that you have learnt throughout the week, and what benefit they will have to your assessment and future work.*
 We have learnt about electronic systems and the open lectures have made us even more eager for future courses.
 
-## Week 2 - Recognising electronic components.
+## Week 2 - Don't Get Zapped
 This lesson introduced us to many of the physical electronic elements and the associated roles that they play in circuits.
+## Week 3 - What is Arduino?
+## Week 4 - Arduino but Better.
+int ledPin1 = 13;
+int ledPin2 = 12;
+int ledPin3 = 11;
+
+int buttonPin = 2;
+
+int buttonState = 0;
+
+int timeDelay = 100;
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  
+  pinMode(ledPin1,OUTPUT);
+  pinMode(ledPin2,OUTPUT);
+  pinMode(ledPin3,OUTPUT);
+  pinMode(buttonPin,INPUT);
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+  buttonState = digitalRead(buttonPin);
+  if(buttonState == HIGH){
+    digitalWrite(ledPin1,HIGH);
+    digitalWrite(ledPin2,LOW);
+    digitalWrite(ledPin3,HIGH);
+  }else
+  {
+    digitalWrite(ledPin1,LOW);
+    digitalWrite(ledPin2,HIGH);
+    digitalWrite(ledPin3,LOW);
+  }
+
+}
+
+
+
