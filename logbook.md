@@ -31,6 +31,10 @@ We have learnt about electronic systems and the open lectures have made us even 
 ## Week 2 - Don't Get Zapped
 This lesson introduced us to many of the physical electronic elements and the associated roles that they play in circuits.
 ## Week 3 - What is Arduino?
+In this lesson, we have learned Arduino, which is a convenient and flexible open source electronic prototype platform. Contains hardware (various models of Arduino boards) and software (Arduino IDE). Developed by a European development team in the winter of 2005. Its members include Massimo Banzi, David Cuartielles, Tom Igoe, Gianluca Martino, David Mellis and Nicholas Zambetti. [1]
+It is built on the open source simple I/O interface Edition and has a Processing/Wiring development environment using languages like Java and C. It mainly consists of two parts: the hardware part is an Arduino circuit board that can be used for circuit connection; The other is the Arduino IDE, the program development environment on your computer.
+Arduino uses various sensors to sense the environment and controls lights, motors, and other devices to feedback and influence the environment. The microcontroller on the board can be programmed by the Arduino programming language, compiled into binary files, and burned into the microcontroller. An Arduino-based project can include Arduino and other software running on a PC that communicates with each other (Flash, Processing, MaxMSP, for example).
+
 ## Week 4 - Arduino but Better.
 int ledPin1 = 13;
 int ledPin2 = 12;
@@ -70,6 +74,7 @@ void loop() {
 
 }
 ## Week 5 - Expanded Universe
+In this lesson, we learned how to use a switch on the breadboard to control the light of the small light bulb. Of course, this is different from the former, the three light bulbs are constantly flashing, which is controlled by our code.
 
 #define trigPin 3
 #define echoPin 2
@@ -115,7 +120,155 @@ void loop() {
   }
   delay(100);
 }
-## Week 6 - 
+## Week 7 - Compute It
+Made LED display screen, can show our code into the display.
+
+int sensorValue;
+float voltage;
+float resistance;
+int ledPin1 = 9;
+int ledPin2 = 10;
+int ledPin3 = 11;
+int ledPin4 = 12;
+int ledPin5 = 13;
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  pinMode(ledPin1,OUTPUT);
+  pinMode(ledPin2,OUTPUT);
+  pinMode(ledPin3,OUTPUT);
+  pinMode(ledPin4,OUTPUT);
+  pinMode(ledPin5,OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+  sensorValue = analogRead(A0);
+  //Serial.println(sensorValue);
+  voltage = sensorValue * (5.0/ 1023.0);
+  resistance = map(sensorValue,0,1023,10000,0);
+
+  Serial.print("Voltage: ");
+  Serial.print(voltage);
+  Serial.println("v");
+  Serial.print("Resistance:");
+  Serial.print(resistance);
+  Serial.println("ohms");
+  delay(1);
+  if (voltage >= 1.00)
+  {
+    digitalWrite(ledPin1,HIGH);
+  }
+  if (voltage >= 2.00)
+  {
+    digitalWrite(ledPin2,HIGH);
+  }
+  if (voltage >= 3.00)
+  {
+    digitalWrite(ledPin3,HIGH);
+  }
+  if (voltage >= 4.00)
+  {
+    digitalWrite(ledPin4,HIGH);
+}
+if (voltage >= 5.00)
+  {
+    digitalWrite(ledPin5,HIGH);
+  }
+}
+
+## week8
+#include <SPI.h>
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+
+#define SCREEN_WIDTH 128 // OLED display width, in pixels
+#define SCREEN_HEIGHT 64 // OLED display height, in pixels
+
+#define OLED_RESET -1
+
+
+#define SCREEN_ADDRESS 0x3C ///< See datasheet for Address; 0x3D for 128x64, 0x3C for 128x32
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
+
+void setup() {
+  // put your setup code here, to run once:
+  display.begin(SSD1306_SWITCHCAPVCC,SCREEN_ADDRESS);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+  display.clearDisplay();
+  display.setTextSize(2);
+  display.setTextColor(WHITE);
+  display.setCursor(0,0);
+  display.print("");
+  display.display();
+  delay(1000);
+
+}
+
+## week9
+int one = 11;
+int two = 10;
+int four = 9;
+
+void setup() {
+  // put your setup code here, to run once:
+pinMode(one,OUTPUT);
+pinMode(two,OUTPUT);
+pinMode(four,OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+multiPlex(0,0,0,500);
+multiPlex(0,1,1,250);
+multiPlex(1,1,1,100);
+}
+void multiPlex(bool a,bool b,bool c,int del){
+  digitalWrite(one,c);
+  digitalWrite(two,b);
+  digitalWrite(four,a);
+  delay(del);
+}
+
+## week10
+#include <SPI.h>
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+
+#define SCREEN_WIDTH 128 // OLED display width, in pixels
+#define SCREEN_HEIGHT 64 // OLED display height, in pixels
+
+#define OLED_RESET -1
+
+
+#define SCREEN_ADDRESS 0x3C ///< See datasheet for Address; 0x3D for 128x64, 0x3C for 128x32
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
+
+void setup() {
+  // put your setup code here, to run once:
+  display.begin(SSD1306_SWITCHCAPVCC,SCREEN_ADDRESS);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+  display.clearDisplay();
+  display.setTextSize(2);
+  display.setTextColor(WHITE);
+  display.setCursor(0,0);
+  display.print("");
+  display.display();
+  delay(1000);
+
+}
 
 
 
