@@ -74,6 +74,8 @@ void loop() {
 
 }
 ## Week 5 - Expanded Universe
+In this lesson we have learnt to control the light and dark changes of a small light bulb by means of a switch, using a circuit connected to a resistor plugged in, connected to a computer for power supply and then fitted with our switch to achieve the light and dark of the small light bulb.
+
 In this lesson, we learned how to use a switch on the breadboard to control the light of the small light bulb. Of course, this is different from the former, the three light bulbs are constantly flashing, which is controlled by our code.
 
 #define trigPin 3
@@ -121,6 +123,8 @@ void loop() {
   delay(100);
 }
 ## Week 7 - Compute It
+This week we have been learning about the use of code to display values on a digital screen, using a circuit plug-in that allows us to display code on the computer that produces whatever we type.
+
 Made LED display screen, can show our code into the display.
 
 int sensorValue;
@@ -213,6 +217,8 @@ void loop() {
 }
 
 ## week9
+This week we used physical buttons to manipulate the numbers on the display, for example if I pressed the number 9, the display would show the number 9 and if I pressed 2, it would show 2. All in all it was great fun and allowed us to swim in the technology of digital media.
+
 int one = 11;
 int two = 10;
 int four = 9;
@@ -237,7 +243,9 @@ void multiPlex(bool a,bool b,bool c,int del){
   delay(del);
 }
 
-## week10
+## week10 
+In this lesson we learned what is PCB, the Chinese name for printed circuit board, also known as printed circuit board, is an important electronic component, is the support body of electronic components, is the carrier of the electrical connection of electronic components because it is made using electronic printing technology, it is called "printed" circuit board.The pcb allows us to view the various circuit design concepts and styles in the port and to get an easier understanding of the components and secrets.
+
 #include <SPI.h>
 #include <Wire.h>
 #include <Adafruit_GFX.h>
