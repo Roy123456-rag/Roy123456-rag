@@ -188,70 +188,89 @@ if (voltage >= 5.00)
   }
 }
 ```
+### Weekly Conclusion
+We learned the display operation, input different letters or numbers in the computer, can be displayed in it.
 
 ## week8-Printed Circuit Boards
+This week in class we have learnt how to control the blinking of LED bulbs and how often they blink, how to put together wiring in an Arduino breadboard, the basics of binary and the ability to extrapolate binary.  which then corresponds bit by bit to perform the operation.
 ```c
-#include <SPI.h>
-#include <Wire.h>
-#include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
-
-#define SCREEN_WIDTH 128 // OLED display width, in pixels
-#define SCREEN_HEIGHT 64 // OLED display height, in pixels
-
-#define OLED_RESET -1
-
-
-#define SCREEN_ADDRESS 0x3C ///< See datasheet for Address; 0x3D for 128x64, 0x3C for 128x32
-Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
-
-void setup() {
-  // put your setup code here, to run once:
-  display.begin(SSD1306_SWITCHCAPVCC,SCREEN_ADDRESS);
-}
-
-void loop() {
-  // put your main code here, to run repeatedly:
-
-  display.clearDisplay();
-  display.setTextSize(2);
-  display.setTextColor(WHITE);
-  display.setCursor(0,0);
-  display.print("");
-  display.display();
-  delay(1000);
-
-}
-```
-
-## week9
-This week we used physical buttons to manipulate the numbers on the display, for example if I pressed the number 9, the display would show the number 9 and if I pressed 2, it would show 2. All in all it was great fun and allowed us to swim in the technology of digital media.
-```c
-int one = 11;
+int one = 9;
 int two = 10;
-int four = 9;
+int four = 11;
 
 void setup() {
-  // put your setup code here, to run once:
+  // put your setup code here, to run once:
 pinMode(one,OUTPUT);
 pinMode(two,OUTPUT);
 pinMode(four,OUTPUT);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  // put your main code here, to run repeatedly:
 multiPlex(0,0,0,500);
 multiPlex(0,1,1,250);
 multiPlex(1,1,1,100);
 }
 void multiPlex(bool a,bool b,bool c,int del){
-  digitalWrite(one,c);
-  digitalWrite(two,b);
-  digitalWrite(four,a);
-  delay(del);
+  digitalWrite(one,c);
+  digitalWrite(two,b);
+  digitalWrite(four,a);
+  delay(del);
 }
 ```
 ### Weekly Conclusion
+The lesson concludes that the blinking of each small LED bulb is firmly tied to the binary. They are so closely related that each one of them will not respond if something goes wrong with the little bulb. This lesson has taught and taught you the rules about small light bulbs and binary.
+
+
+## Week 9
+The class has learned the installation of membrane buttons on an Arduino breadboard and has been able to use the code flexibly to implement membrane buttons that respond on the serial monitor. It is also possible to connect LED electronic displays for interconnection.
+### Evidence 
+```c
+// This file contains predefined setup for various Adafruit Matrix Keypads.
+#ifndef __KEYPAD_CONFIG_H__
+#define __KEYPAD_CONFIG_H__
+
+#if defined(KEYPAD_PID3844)
+const byte ROWS = 4; // rows
+const byte COLS = 4; // columns
+// define the symbols on the buttons of the keypads
+char keys[ROWS][COLS] = {{'1', '2', '3', 'A'},
+                         {'4', '5', '6', 'B'},
+                         {'7', '8', '9', 'C'},
+                         {'*', '0', '#', 'D'}};
+byte rowPins[ROWS] = {R1, R2, R3,
+                      R4}; // connect to the row pinouts of the keypad
+byte colPins[COLS] = {C1, C2, C3,
+                      C4}; // connect to the column pinouts of the keypad
+#endif
+
+#if defined(KEYPAD_PID1824) || defined(KEYPAD_PID3845) || defined(KEYPAD_PID419)
+const byte ROWS = 4; // rows
+const byte COLS = 3; // columns
+// define the symbols on the buttons of the keypads
+char keys[ROWS][COLS] = {
+    {'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}, {'*', '0', '#'}};
+byte rowPins[ROWS] = {R1, R2, R3,
+                      R4};         // connect to the row pinouts of the keypad
+byte colPins[COLS] = {C1, C2, C3}; // connect to the column pinouts of the
+                                   // keypad
+#endif
+
+#if defined(KEYPAD_PID1332)
+const byte ROWS = 1; // rows
+const byte COLS = 4; // columns
+// define the symbols on the buttons of the keypads
+char keys[ROWS][COLS] = {
+    {'1', '2', '3', '4'},
+};
+byte rowPins[ROWS] = {R1}; // connect to the row pinouts of the keypad
+byte colPins[COLS] = {C1, C2, C3,
+                      C4}; // connect to the column pinouts of the keypad
+#endif
+#endif
+```
+### Weekly Conclusion
+We learned to use the touch pad to display the operation, which will help us a lot later.
 
 
 ## week10 
@@ -293,6 +312,7 @@ void loop() {
 
 ### Weekly Conclusion
 We learned the circuit diagram of PCB, which can bring us a greater role in the future.
+
 
 ## week11
 ## Week 11 - Introduction and Setup  
