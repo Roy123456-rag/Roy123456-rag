@@ -36,6 +36,7 @@ It is built on the open source simple I/O interface Edition and has a Processing
 Arduino uses various sensors to sense the environment and controls lights, motors, and other devices to feedback and influence the environment. The microcontroller on the board can be programmed by the Arduino programming language, compiled into binary files, and burned into the microcontroller. An Arduino-based project can include Arduino and other software running on a PC that communicates with each other (Flash, Processing, MaxMSP, for example).
 
 ## Week 4 - Arduino but Better.
+```c
 int ledPin1 = 13;
 int ledPin2 = 12;
 int ledPin3 = 11;
@@ -73,11 +74,13 @@ void loop() {
   }
 
 }
+```
+
 ## Week 5 - Expanded Universe
 In this lesson we have learnt to control the light and dark changes of a small light bulb by means of a switch, using a circuit connected to a resistor plugged in, connected to a computer for power supply and then fitted with our switch to achieve the light and dark of the small light bulb.
 
 In this lesson, we learned how to use a switch on the breadboard to control the light of the small light bulb. Of course, this is different from the former, the three light bulbs are constantly flashing, which is controlled by our code.
-
+```c
 #define trigPin 3
 #define echoPin 2
 long duration;
@@ -122,11 +125,13 @@ void loop() {
   }
   delay(100);
 }
+```
+
 ## Week 7 - Compute It
 This week we have been learning about the use of code to display values on a digital screen, using a circuit plug-in that allows us to display code on the computer that produces whatever we type.
 
 Made LED display screen, can show our code into the display.
-
+```c
 int sensorValue;
 float voltage;
 float resistance;
@@ -182,8 +187,10 @@ if (voltage >= 5.00)
     digitalWrite(ledPin5,HIGH);
   }
 }
+```
 
-## week8
+## week8-Printed Circuit Boards
+```c
 #include <SPI.h>
 #include <Wire.h>
 #include <Adafruit_GFX.h>
@@ -215,10 +222,11 @@ void loop() {
   delay(1000);
 
 }
+```
 
 ## week9
 This week we used physical buttons to manipulate the numbers on the display, for example if I pressed the number 9, the display would show the number 9 and if I pressed 2, it would show 2. All in all it was great fun and allowed us to swim in the technology of digital media.
-
+```c
 int one = 11;
 int two = 10;
 int four = 9;
@@ -242,10 +250,13 @@ void multiPlex(bool a,bool b,bool c,int del){
   digitalWrite(four,a);
   delay(del);
 }
+```
+### Weekly Conclusion
+
 
 ## week10 
 In this lesson we learned what is PCB, the Chinese name for printed circuit board, also known as printed circuit board, is an important electronic component, is the support body of electronic components, is the carrier of the electrical connection of electronic components because it is made using electronic printing technology, it is called "printed" circuit board.The pcb allows us to view the various circuit design concepts and styles in the port and to get an easier understanding of the components and secrets.
-
+```c
 #include <SPI.h>
 #include <Wire.h>
 #include <Adafruit_GFX.h>
@@ -277,6 +288,45 @@ void loop() {
   delay(1000);
 
 }
+```
+
+
+### Weekly Conclusion
+We learned the circuit diagram of PCB, which can bring us a greater role in the future.
+
+## week11
+## Week 11 - Introduction and Setup  
+This week was spent learning about stepper motor installation on an Arduino breadboard and implementing code to control the stepper motor. We have gained an in-depth understanding and knowledge of what stepper motors do and how they work.
+### Evidence 
+```c
+#include<Stepper.h>
+
+const int StepsPerRevolution = 2038;
+
+Stepper myStepper = Stepper(StepsPerRevolution,8,10,9,11);
+int buttonPin = 6;
+int motSpeed;
+void setup() {
+  // put your setup code here, to run once:
+  
+pinMode(buttonPin,INPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  motSpeed = map(analogRead(A0),0,1023,1,15);
+  Serial.println(motSpeed);
+  if(digitalRead(buttonPin) == HIGH){
+myStepper.setSpeed(motSpeed);
+myStepper.step(StepsPerRevolution);
+delay(1000);
+myStepper.step(StepsPerRevolution);
+delay(1000);
+}
+}
+```
+### Weekly Conclusion 
+This week we have learnt and mastered about the installation and practical application of stepper motors, gaining an in-depth understanding of the code that can control stepper motors in conjunction with arduino.
 
 
 
