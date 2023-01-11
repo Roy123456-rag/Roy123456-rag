@@ -346,7 +346,7 @@ delay(1000);
 }
 ```
 ### Weekly Conclusion 
-This week we have learnt and mastered about the installation and practical application of stepper motors, gaining an in-depth understanding of the code that can control stepper motors in conjunction with arduino.
+This week we have learnt and mastered about the installation and practical application of stepper motors, gaining an in-depth understanding of the code that can control stepper motors in conjunction with arduino....
 
 
 
